@@ -1,23 +1,24 @@
 #coding: utf-8
 import carsdatabase
 import ainmodule
-
+import sys
 
 
 #funcs.get(actn)
 
 
-wdata = carsdatabase.opening()
 
 #searching car by name or its part
 
 def namesearch():
+    wdata = carsdatabase.opening()
 
     global carslist
 
     # searching by full name
     carName = input ("Enter car's name or its PART to find its horse power rate: ")
     carslist = list(wdata.items())
+    #print (carslist)
 
     if carName in wdata:
         print (carName + 'has '+ str(wdata[carName]) + 'horse powers')
@@ -69,16 +70,29 @@ def rangesearch():
     for i in ranged:
          print(i)
 
+def func_exit():
+    sys.exit(0)
+
+choose = {
+    '1':carsdatabase.refresh_data, #data entering
+    '2':namesearch, #data searching
+    '3':carsdatabase.delelem, #data deleting or changing
+    '4':func_exit #exit
+    }
+
+        
 
 def choice():
 
     actn = input ('Enter "1" to enter data,  "2" to search data, "3" to delete or change data, "4" to exit ')    
-
-
+    choose[actn]()
+    choice()
+''' 
     if actn == '1':
         ainmodule.data_entering()
         choice()
     elif actn == '2':
+
         namesearch()
         choice()
     elif actn == '3':
@@ -88,7 +102,7 @@ def choice():
         pass
     else:
         choice()
-            
+'''            
 choice()
 
 

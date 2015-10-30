@@ -1,6 +1,7 @@
+
 # coding: utf-8
 
-import carsdatabase
+#import carsdatabase
 import random
 
 data = {}
@@ -36,13 +37,14 @@ def data_entering():
     
     def datadata(car, hp):
         data[car] = int(hp)
+        print (data)
         return data
-    datadata(car,hp)
+
+    datadata(car, hp)
+
     #carsdatabase.refresh_data()        
     ext = input ("Type 'go' to go on entering data or press 'enter' key to finish ")
     if ext == 'go':
         data_entering()
-
-
 
 

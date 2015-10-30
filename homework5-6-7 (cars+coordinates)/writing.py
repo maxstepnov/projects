@@ -51,5 +51,3 @@ def rewriting_data():
         print ('No such car sign in DBase')
     
 
-rewriting_data()
-

@@ -9,6 +9,8 @@ def generate_sign():
     for i in range(3):
        
         sign = str(hex(random.randint(8,17)))
+        #sign = int(random.randint(10,36), base=26)
+        
         signhex += sign[2:].upper()
     
     return signhex

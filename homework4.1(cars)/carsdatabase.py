@@ -11,8 +11,9 @@ dbase = {}
 def refresh_data():
     def renew():
         #data updating from module 'ainmodule'
-
+        ainmodule.data_entering()
         ss = ainmodule.data
+        print(ss)
         data.update(ss)
         
         global dbase
@@ -69,6 +70,11 @@ def delelem():
                 except UnboundLocalError:
                     print ('Should be integer!!!')
                     tryint()
+                f = open ('dbase.txt', 'wb')
+                pickle.dump(dbase, f)
+                print (dbase)
+                f.close()
+
             tryint()
     else:
         print ('No such key in database')
